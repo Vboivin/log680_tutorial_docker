@@ -1,0 +1,26 @@
+# Comment installer Docker
+https://docs.docker.com/engine/install/
+
+# Utiliser Docker sans root (linux)
+sudo usermod -aG docker $USER
+
+# Execute an image
+docker container run <image_name_here:tag>
+
+# Dockerfile
+FROM python:3.8-slim-buster
+
+COPY ./tuto_680.py tuto_680.py
+
+CMD ["python3", "-u", "exemple.py"]
+
+# Create an image
+docker build . -t <your_account_here>/docker-tuto-log680
+
+# Publish an image
+docker login
+docker push <your_account_here>/docker-tuto-log680
+
+# Read logs
+docker container logs <container_name_here>
+
