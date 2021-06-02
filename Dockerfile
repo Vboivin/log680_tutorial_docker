@@ -4,5 +4,5 @@ WORKDIR /app
 
 COPY . .
 
-ENTRYPOINT [ "python3", "-u", "exemple.py" ]
+ENTRYPOINT [ "python3", "-u", "tuto_680.py" ]
 
