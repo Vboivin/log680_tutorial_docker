@@ -17,11 +17,11 @@ COPY . .
 CMD ["python3", "-u", "tuto_680.py"]
 
 # Create an image
-docker build . -t <your_account_here>/docker-tuto-log680
+docker image build . -t <your_account_here>/docker-tuto-log680
 
 # Publish an image
 docker login
-docker push <your_account_here>/docker-tuto-log680
+docker image push <your_account_here>/docker-tuto-log680
 
 # Read logs
 docker container logs <container_name_here>
