@@ -8,7 +8,7 @@ sudo usermod -aG docker $USER
 docker container run <image_name_here:tag>
 
 # Dockerfile
-FROM python:3.8-slim-buster
+FROM python:3.9.5-alpine3.13
 
 WORKDIR /app
 
