@@ -10,9 +10,11 @@ docker container run <image_name_here:tag>
 # Dockerfile
 FROM python:3.8-slim-buster
 
-COPY ./tuto_680.py tuto_680.py
+WORKDIR /app
 
-CMD ["python3", "-u", "exemple.py"]
+COPY . .
+
+CMD ["python3", "-u", "tuto_680.py"]
 
 # Create an image
 docker build . -t <your_account_here>/docker-tuto-log680
