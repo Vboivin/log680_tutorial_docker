@@ -1,11 +1,8 @@
-# Comment installer Docker
+# How to install Docker
 https://docs.docker.com/engine/install/
 
-# Utiliser Docker sans root (linux)
+# Using Docker without being the super user
 sudo usermod -aG docker $USER
-
-# Execute an image
-docker container run <image_name_here:tag>
 
 # Dockerfile
 FROM python:3.9.5-alpine3.13
@@ -17,14 +14,24 @@ COPY . .
 CMD ["python3", "-u", "tuto_680.py"]
 
 # Create an image
-docker image build . -t <your_account_here>/docker-tuto-log680
+docker image build . --tag log680ets/docker-tuto-log680:1.0.0
+docker image build . --tag log680ets/docker-tuto-log680:latest
 
 # Publish an image
 docker login
-docker image push <your_account_here>/docker-tuto-log680
+docker image push log680ets/docker-tuto-log680:1.0.0
+docker image push log680ets/docker-tuto-log680:latest
+
+# Execute an image
+docker container run \
+         --env USER=Vincent \
+         --env DESCRIPTION=tuto \
+         --name tuto-log680-docker \
+         --detach \
+         log680ets/docker-tuto-log680:1.0.0
 
 # Read logs
-docker container logs <container_name_here>
+docker container logs tuto-log680-docker
 
 # Remove all running containers
 docker container rm --force $(docker container ls --all --quiet)
