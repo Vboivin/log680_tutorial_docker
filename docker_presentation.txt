@@ -31,4 +31,3 @@ docker container rm --force $(docker container ls --all --quiet)
 
 # Remove all running images
 docker image rm --force $(docker image ls --all --quiet)
-
